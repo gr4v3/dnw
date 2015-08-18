@@ -12,30 +12,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> --> 
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-
+  <link rel="stylesheet" href="css/media.css?v=1.0">
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
-
 <body>
     <header>
         <div class="nav">
           <ul>
             <li class="home"><a href="/">Início</a></li>
-            <li class="tutorials"><a id="novidades" href="#novidades" data-type="ajax" data-target=".container" data-href="/pages/novidades">Novidades</a></li>
-            <li class="about"><a id="agenda" href="#agenda" data-type="ajax" data-target=".container" data-href="/pages/agenda">Agenda</a></li>
-            <li class="news"><a id="media" href="#media" data-type="ajax" data-target=".container" data-href="/pages/media">Media</a></li>
-            <li class="contact"><a id="contactos" href="#contactos" data-type="ajax" data-target=".container" data-href="/pages/contactos">Contactos</a></li>
+            <li class="tutorials"><a id="novidades" href="#novidades" data-type="ajax" data-target="article" data-href="/pages/novidades">Novidades</a></li>
+            <li class="about"><a id="agenda" href="#agenda" data-type="ajax" data-target="article" data-href="/pages/agenda">Agenda</a></li>
+            <li class="news"><a id="media" href="#media" data-type="ajax" data-target="article" data-href="/pages/media">Media</a></li>
+            <li class="contact"><a id="contactos" href="#contactos" data-type="ajax" data-target="article" data-href="/pages/contactos">Contactos</a></li>
           </ul>
         </div>
     </header>
-    <div class="container"></div>
+    <section>
+        <menu></menu>
+        <article>asdasdasdasd</article>
+    </section>
     <audio controls autoplay>
         <source src="audio/contradicao_soundcloud.mp3" type="audio/mpeg">
     </audio>

@@ -1,0 +1,112 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/Ago/2015, 15:03:49
+    Author     : grave
+*/
+@media (max-width:320px) {
+    
+    
+    audio {
+        left: 3vw;
+        bottom: 8px;
+    } 
+    .nav {
+        padding-top: 14.3em;
+        background-position: center 6px;
+    }
+    .nav li {
+        width: 100%;
+        height: auto;
+        line-height: initial;
+        font-size: 3em;
+    }
+      
+   .nav li {
+        display: table;
+        margin-right: -4px;
+    } 
+    
+    
+    body {
+       overflow:hidden; 
+       width:640px;
+       margin-left: 0px;
+    }
+    header, section {
+        width:320px;
+        float: left;
+    }
+    header {
+        z-index:1;
+    }
+    section {
+        z-index:2;
+    }
+    
+    menu {
+        background-image: url(../img/menu.png);
+        width: 32px;
+        height: 34px;
+        background-size: cover;
+        padding: 0px;
+        margin: 0px;
+        position: relative;
+    }
+    
+    
+    .slide-right {
+        animation-name: slide-right;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+    }
+    .slide-left {
+        animation-name: slide-left;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes slide-left {
+        from {margin-left: 0px;}
+        to {margin-left: -320px;}
+    }
+    @keyframes slide-right {
+        from {margin-left: -320px;}
+        to {margin-left: 0px;}
+    }
+} 
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+ 
+  /* Options 2 - Float
+  .nav li {
+    float: left;
+  }
+  .nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .nav {
+    background-color: #444;
+  }
+  */
+  
+}
+
+

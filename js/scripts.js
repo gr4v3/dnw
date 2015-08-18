@@ -3,7 +3,7 @@ var site = {
     root:function(root) {
         return $(root || document.body);
     },
-    requests:function(root) {
+    requests:function(root, callback) {
         var that = this;
         this.root(root).find('*[data-type=ajax]').each(function() {
             var $this = $(this);
@@ -11,9 +11,9 @@ var site = {
             var singlehref = $this.attr('data-href');
             var doublehref = $this.attr('data-double-href');
             var triggermenu = $this.attr('data-trigger-menu');
-            if (singlehref) $this.click(function() {
+            if (singlehref) $this.on('click touch', function() { 
                 if ($this.attr('data-confirm') && !confirm($this.attr('data-confirm'))) return false;
-                that.load(target, singlehref);
+                that.load(target, singlehref, callback);
             });
             if (doublehref) {
                 $this.on('click touch', function() {
@@ -39,22 +39,37 @@ var site = {
     },
     scrollTop:function(target, offset, callback) {
         if (!offset) offset = 0;
+        if (!callback) callback = function(){};
         $('body').animate({
             scrollTop: $(target).offset().top + offset
-        }, 750, function() {if (callback) callback(this);});  
+        }, 750, callback);  
+        
     },
-    load:function(target, href) {
+    load:function(target, href, callback) {
         var that = this;
         var $target = $(target);
         href+= '?ajax=true';
         if ($target.length) $target.load(href, function() {
-            that.requests($target);
-            that.scrollTop($target);
+            if (callback) callback($target);
+            that.requests($target, callback);
+            //that.scrollTop($target, 0, callback);
             $(window).trigger('resize');  
         });
     }
 };
 
 $(document).ready(function() {
-    site.requests();
+    var $body = $('body');
+    var $header = $('header');
+    var $section = $('section');
+    var $menu = $('menu');
+    site.requests(document.body, function() {
+        console.log('page loaded');
+        $body.removeClass('slide-right');
+        $body.addClass('slide-left');
+    });
+    $menu.on('click touch', function() {
+        $body.removeClass('slide-left');
+        $body.addClass('slide-right');
+    });
 });

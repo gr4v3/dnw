@@ -50,65 +50,6 @@ audio {
   cursor: default;
 }
 
-
-@media (max-width:320px) {
-    audio {
-        left: 3vw;
-        bottom: 8px;
-    } 
-    .nav {
-        padding-top: 12em;
-        background-position: center 6px;
-    }
-    .nav li {
-        width: 100%;
-        height: auto;
-        line-height: initial;
-        font-size: 3em;
-      }
-      
-   .nav li {
-        display: table;
-        margin-right: -4px;
-      } 
-} 
-
-@media screen and (min-width: 600px) {
-  .nav li {
-    width: 120px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-  }
- 
-  /* Option 1 - Display Inline */
-  .nav li {
-    display: inline-block;
-    margin-right: -4px;
-  }
- 
-  /* Options 2 - Float
-  .nav li {
-    float: left;
-  }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
-    margin: 0 auto;
-  }
-  .nav {
-    background-color: #444;
-  }
-  */
-  
-}
-
-
-
-
-
-
 @keyframes members {
     from {opacity: 0;}
     to {opacity: 1;}
