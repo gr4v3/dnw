@@ -1,0 +1,115 @@
+body {
+    background-color:#FDECDB;
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    background-image: url(../img/members.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 55vh;
+    animation-name: members;
+    animation-duration: 1s;
+    background-position: center 31px;
+}
+.nav.backfaded {
+    
+}
+audio {
+    position: fixed;
+    bottom: 4px;
+    left: 42vw;
+}
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+.nav a:hover {
+  background-color: firebrick;
+}
+ 
+.nav a.active {
+  background-color: #FDECDB;
+  color: #444;
+  cursor: default;
+}
+
+
+@media (max-width:320px) {
+    audio {
+        left: 3vw;
+        bottom: 8px;
+    } 
+    .nav {
+        padding-top: 12em;
+        background-position: center 6px;
+    }
+    .nav li {
+        width: 100%;
+        height: auto;
+        line-height: initial;
+        font-size: 3em;
+      }
+      
+   .nav li {
+        display: table;
+        margin-right: -4px;
+      } 
+} 
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+ 
+  /* Options 2 - Float
+  .nav li {
+    float: left;
+  }
+  .nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .nav {
+    background-color: #444;
+  }
+  */
+  
+}
+
+
+
+
+
+
+@keyframes members {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
