@@ -44,7 +44,7 @@ audio {
   background-color: firebrick;
 }
  
-.nav a.active {
+.nav a:target {
   background-color: #FDECDB;
   color: #444;
   cursor: default;
