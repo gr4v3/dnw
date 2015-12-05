@@ -144,10 +144,11 @@ form input[type=reset] {
     display: inline-block;
     width: 320px;
     height: 200px;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     margin-bottom: 40px;
+    background-color: gainsboro;
 }
 .gallery .item textarea {
     position: absolute;

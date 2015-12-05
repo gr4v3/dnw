@@ -60,6 +60,15 @@ if (!empty($form)) {
             file_put_contents("../gallery/$name/.info", json_encode($album));
         }
         
+        if (!empty($_FILES['album'])) {
+            $files = $_FILES['album'];
+            Debug(getcwd());
+            foreach($files as $index => $item) {
+                //move_uploaded_file($files['tmp_name'][$index], getcwd() );
+            }
+            
+        }
+        
     } else if ($page === 'contacts') {
         
         $text = filter_input(INPUT_POST, 'text');

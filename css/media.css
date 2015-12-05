@@ -202,12 +202,13 @@ and (min-width : 1224px) {
     article {
         margin-bottom: 5em;
     }
+    /*
     body.slide-left.media {
         background-size: 0px;
     }
     body.slide-left.media section {
         margin: 0px;
-    }
+    }*/
     section {
         padding: 15px;
     }

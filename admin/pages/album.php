@@ -17,7 +17,7 @@ $gallery = folder('../../gallery/' . $album);
                 foreach($gallery->files as $item) {
                     ?>
                     <div class="item" style="background-image: url(../../img-320-200/gallery/<?php echo $album; ?>/<?php echo $item; ?>);">
-                        <textarea name="album[file][<?php echo $item; ?>]"></textarea>
+                        <textarea name="album[file][<?php echo $item; ?>]"><?php echo $gallery->info->file->{$item}; ?></textarea>
                     </div>
                     <?php
                 }
