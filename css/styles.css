@@ -1,56 +1,163 @@
+* {
+    font-family: 'Julius Sans One', sans-serif;
+}
+html {
+   min-height: 100%;   
+}
 body {
-    background-color:#FAEAD8;
+    background-color:#FDECDB;
     margin: 0;
     padding: 0;
+    background-image: url(../img/members.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    transition: all 0.3s ease;
+}
+header {
+    
 }
 .nav {
-    background-image: url(../img/members.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 55vh;
-    animation-name: members;
-    animation-duration: 1s;
-    background-position: center 31px;
+    background-color: #444;
+    
 }
 .nav.backfaded {
     
 }
-audio {
+footer {
     position: fixed;
-    bottom: 4px;
-    left: 42vw;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
 }
 .nav ul {
-  list-style: none;
-  background-color: #444;
-  text-align: center;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    display: table
 }
 .nav li {
-  font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
   line-height: 40px;
   height: 40px;
-  border-bottom: 1px solid #888;
+  float: left;
 }
 .nav a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  transition: .3s background-color;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+    text-transform: lowercase;
+    text-align: center;
 }
 .nav a:hover {
-  background-color: firebrick;
+  background-color: #999933;
+  /*background-color: #FFCC33;*/
 }
  
 .nav a:target {
-  background-color: #FDECDB;
-  color: #444;
+  /*background-color: brown;*/
+  background-color: #999933;
+  color: white;
   cursor: default;
+  width: 100%;
 }
 
-@keyframes members {
-    from {opacity: 0;}
-    to {opacity: 1;}
+#float {
+    display:none;
+    cursor:pointer;
+}
+#float .back {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    background-image: url(../img/back.png);
+    background-size: cover;
+    opacity: 0.5;
+}
+body.blur {
+    overflow:hidden;
+}
+body.blur #float {
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 12vh;
+    z-index: 999;
+    left: 0%;
+    overflow: hidden;
+}
+body.blur header,
+body.blur section {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-filter:blur(10px);
+    filter:blur(2px) grayscale(1);
+}
+#float table {
+    -webkit-transition: left 0.4s; /* Safari */
+    transition: left 0.4s;
+    position:relative;
+}
+#float table.draggable {
+    -webkit-transition: none; /* Safari */
+    transition: none;
+}
+#float table td {
+    border: 10px solid white;
+    background-color: black;
+}
+#float table td:first-child {
+    /*border-left: none;*/
+}
+#float table td:last-child {
+    /*border-right: none;*/
+}
+
+
+.gallery {
+    margin: 30px 15px;
+}
+.gallery .album {
+    cursor:pointer;
+}
+.gallery .album:before {
+    content:attr(data-content);
+}
+.gallery .album .item {
+    display:none;
+    position:relative;
+}
+.gallery .album .item:first-child {
+    display: block;
+    background-color: white;
+    padding: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 2px;
+}
+
+.gallery .album .item label {
+    position: absolute;
+    width: 100%;
+    left:0;
+    bottom:-1px;
+    background-color: rgba(255, 255, 255, 0.33);
+    color: rgba(255, 255, 255, 0.33);
+    transition: all 0.2s ease;
+    
+}
+.gallery .album .item:hover label {
+    background-color: rgba(255, 255, 255, 0.74);
+    padding: 10px;
+    color:black;
+}
+.gallery .album .item img {
+    width:100%;
 }

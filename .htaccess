@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+        
+        # scaling small, medium, large
+        RewriteRule ^img-small/([A-Za-z0-9/_-]+).(jpg|gif|png)$ resize.php?width=128&height=96&imgfile=$1.$2
+        RewriteRule ^img-medium/([A-Za-z0-9/_-]+).(jpg|gif|png)$ resize.php?width=230&height=173&imgfile=$1.$2
+        RewriteRule ^img-large/([A-Za-z0-9/_-]+).(jpg|gif|png)$ resize.php?width=470&height=353&imgfile=$1.$2
+
+        RewriteRule ^img-([0-9]{1,4}|\bauto\b)?-([0-9]{1,4}|\bauto\b)?/(([A-Za-z0-9/_-]+).(jpg|gif|png))?$ resize.php?width=$1&height=$2&imgfile=$3
+
+        # Removes index.php from ExpressionEngine URLs
+        RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+        RewriteCond %{REQUEST_URI} !/system/.* [NC]
+        RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+        # Directs all EE web requests through the site index file
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^(.*)$ /index.php/$1 [L]
+</IfModule>

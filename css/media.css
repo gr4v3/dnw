@@ -7,58 +7,62 @@ and open the template in the editor.
     Created on : 18/Ago/2015, 15:03:49
     Author     : grave
 */
-@media (max-width:320px) {
-    
-    
-    audio {
-        left: 3vw;
-        bottom: 8px;
-        top: 92vh;
-    } 
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    /* Styles */
+    body.slide-left {
+        background-image: none;
+    }
+    body.slide-left audio {
+        visibility:hidden;
+    }
     .nav {
-        padding-top: 14.3em;
-        background-position: center 6px;
+        margin-top: 12.3em;
     }
     .nav li {
         width: 100%;
         height: auto;
         line-height: initial;
         font-size: 3em;
-    }
-      
+    }  
    .nav li {
         display: table;
         margin-right: -4px;
     } 
-    
-    
     body {
-       overflow:hidden; 
-       width:640px;
-       margin-left: 0px;
+        overflow:hidden; 
+        width:200%;
+        margin-left: 0px;
+    }
+    body.blur #float {
+        top: 8vh;
     }
     header, section {
-        width:320px;
+        width: 50%;
         float: left;
     }
-    header {
-        z-index:1;
-    }
-    section {
-        z-index:2;
-    }
-    
     menu {
         background-image: url(../img/menu.png);
-        width: 32px;
-        height: 34px;
+        width: 38px;
+        height: 38px;
         background-size: cover;
         padding: 0px;
         margin: 0px;
-        position: relative;
+        position: absolute;
+        background-color: #FDECDB;
     }
-    
-    
+    article {
+        height: 94vh;
+        overflow:auto;
+    }
+    article h1 {
+        padding: 22px 0px 5px;
+        text-transform: capitalize;
+    }
     .slide-right {
         animation-name: slide-right;
         animation-duration: 0.4s;
@@ -70,44 +74,170 @@ and open the template in the editor.
         animation-fill-mode: forwards;
     }
     @keyframes slide-left {
-        from {margin-left: 0px;}
-        to {margin-left: -320px;}
+        from {margin-left: 0px;background-image: url(../img/members.jpg);}
+        to {margin-left: -100%;background-image: none;}
     }
     @keyframes slide-right {
-        from {margin-left: -320px;}
-        to {margin-left: 0px;}
+        from {margin-left: -100%;background-image: none;}
+        to {margin-left: 0px;background-image: url(../img/members.jpg);}
     }
-} 
+    
+}
 
-@media screen and (min-width: 600px) {
-  .nav li {
-    width: 120px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-  }
- 
-  /* Option 1 - Display Inline */
-  .nav li {
-    display: inline-block;
-    margin-right: -4px;
-  }
- 
-  /* Options 2 - Float
-  .nav li {
-    float: left;
-  }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
-    margin: 0 auto;
-  }
-  .nav {
-    background-color: #444;
-  }
-  */
-  
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+    /* Styles */
+    body {
+        margin:0 !important;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+    /* Styles */
+    body {
+        margin:0 !important;
+    }
+    
+}
+@media only screen 
+and (max-width : 360px) {
+    /* Styles */
+
+    
+}
+
+/* Tablets, iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+    /* Styles */
+    body {
+        margin:0 !important;
+    }
+}
+
+/* Tablets, iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+    /* Styles */
+    body {
+        margin:0;
+    }
+}
+
+/* Tablets, iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+    /* Styles */
+    body {
+        margin:0;
+    }
+}
+
+@media only screen 
+and (min-width : 1224px) and (min-height:650px) {
+    body.slide-left section {
+        margin: 53em 0px 3em;
+    }
+    body.blur #float {
+        top: 2vh;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+    /* Styles */
+    body {
+        margin:0;
+    }
+    .nav {
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+    .nav li {
+        margin-right: 0px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+    .nav a,
+    .nav a:target {
+        padding: 0 28px;
+    }
+    
+    /* Option 1 - Display Inline */
+    #float {
+        display:none;
+    }
+    #float .back {
+        margin-left: 75%;
+        margin-top: 1%;
+    }
+    body.slide-left {
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+}
+
+/* MacBook Pro --------------- */
+@media only screen and (min-width:1280px)  { 
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+
+    article {
+        margin-bottom: 5em;
+    }
+    body.slide-left.media {
+        background-size: 0px;
+    }
+    body.slide-left.media section {
+        margin: 0px;
+    }
+    section {
+        padding: 15px;
+    }
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5)
+and (min-width: 375px) {
+    /* Styles */
+    
 }
 
 
+
+@media only screen and (max-height:687px) {
+    body.blur {
+        overflow: hidden;
+    }
+    body.blur #float {
+        top: 11vh;
+    }
+}
+@media only screen and (max-height:489px) {
+    body.blur #float {
+        top: 8vh;
+    }
+}    
+@media only screen and (min-height:1000px) {
+    body.slide-left section {
+        margin: 63em 0px 0em;
+    }
+}

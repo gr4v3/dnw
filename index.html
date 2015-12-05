@@ -2,45 +2,51 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Dul N'Nouk White</title>
-  <meta name="description" content="Dul N'Nouk White Music Band">
-  <meta name="author" content="dul n'nouk white">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Latest compiled and minified CSS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Dul N'Nouk White</title>
+    <meta name="description" content="Dul N'Nouk White Music Band">
+    <meta name="author" content="dul n'nouk white">
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Optional theme -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> --> 
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <link rel="stylesheet" href="css/media.css?v=1.0">
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/media.css?v=1.0">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <header>
         <div class="nav">
           <ul>
-            <li class="home"><a href="/">Início</a></li>
-            <li class="tutorials"><a id="novidades" href="#novidades" data-type="ajax" data-target="article" data-href="/pages/novidades">Novidades</a></li>
-            <li class="about"><a id="agenda" href="#agenda" data-type="ajax" data-target="article" data-href="/pages/agenda">Agenda</a></li>
-            <li class="news"><a id="media" href="#media" data-type="ajax" data-target="article" data-href="/pages/media">Media</a></li>
-            <li class="contact"><a id="contactos" href="#contactos" data-type="ajax" data-target="article" data-href="/pages/contactos">Contactos</a></li>
+            <li class="tutorials"><a id="history" href="#history" data-type="ajax" data-target=".container" data-href="/pages/history">Historial</a></li>
+            <li class="about"><a id="agenda" href="#agenda" data-type="ajax" data-target=".container" data-href="/pages/agenda">Agenda</a></li>
+            <li class="news"><a id="media" href="#media" data-type="ajax" data-target=".container" data-href="/pages/media.php">Media</a></li>
+            <li class="testimonial"><a id="testimonial" href="#testimonial" data-type="ajax" data-target=".container" data-href="/pages/testimonial">Testemunhos</a></li>
+            <li class="contacts"><a id="contacts" href="#contacts" data-type="ajax" data-target=".container" data-href="/pages/contacts">Contactos</a></li>
           </ul>
         </div>
     </header>
     <section>
         <menu></menu>
-        <article>asdasdasdasd</article>
+        <div class="container"></div>
     </section>
-    <audio controls autoplay>
-        <source src="audio/contradicao_soundcloud.mp3" type="audio/mpeg">
-    </audio>
-  <script src="js/scripts.js"></script>
+    <footer>
+        <audio controls>
+            <source src="audio/contradicao_soundcloud.mp3" type="audio/mpeg">
+        </audio>
+    </footer>
 </body>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+    <script src="js/hammer.min.js" type="text/javascript"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/frontpage.js" type="text/javascript"></script>
 </html>

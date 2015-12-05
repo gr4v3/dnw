@@ -1,0 +1,156 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7/Set/2015, 2:46:39
+    Author     : grave
+*/
+body {
+    margin:0;
+    padding:0;
+    font-family: monospace;
+}
+nav {
+    background-color: cadetblue;
+    overflow:hidden;
+}
+nav a {
+    padding: 10px 20px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: initial;
+    font-family: monospace;
+    font-size: larger;
+    float: left;    
+}
+nav a:hover {
+    background-color: #639192;
+}
+nav a:target {
+  background-color: darkseagreen;
+  color: white;
+  cursor: default;
+}
+article {
+    padding:10px;
+}
+article #textarea {
+    width:99.7%;
+    height: 50vh;
+}
+iframe.hide {
+    display:none;
+}
+
+.album {
+    width: 255px;
+    background-color: cornsilk;
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    float:left;
+    margin:4px;
+    cursor:pointer;
+    position: relative;
+}
+.album .big {
+    width: 180px;
+    height: 150px;
+    float: left;
+}
+.album .small {
+    width: 75px;
+    height: 50px;
+    float: right;
+}
+.album .big,
+.album .small {
+    background-size: 128%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.album .description {
+    text-align: center;
+    padding-top: 11px;
+    float: left;
+    width: 100%;
+}
+.album .fa {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    padding: 6px;
+    width: 15px;
+    text-align: center;   
+    background-color: rgba(95, 158, 160, 0.24);
+    color: cornflowerblue;
+}
+.album .fa:hover {
+    color:white;
+    background-color: cadetblue;
+}
+.album .fa-pencil {
+    right: 27px;
+}
+
+form {
+    width: 100%;
+}
+form h1 {
+    text-align: center;
+}
+form div {
+    overflow:hidden;
+    margin: 2px 0px;
+}
+form div label, 
+form div input,
+form div textarea {
+    float:left;
+    display:block;
+}
+form div label {
+    width: 30%;
+}
+form div input,
+form div textarea {
+    width: 70%;
+    box-sizing: border-box;
+}
+form input[type=submit], 
+form input[type=reset] {
+    float:right;
+    width: auto;
+}
+
+.login form {
+    background-color: antiquewhite;
+    width: 244px;
+    margin: 0 auto;
+    margin-top: 40vh;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+
+.gallery {
+    
+}
+.gallery .item {
+    display: inline-block;
+    width: 320px;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 40px;
+}
+.gallery .item textarea {
+    position: absolute;
+    margin-top: 200px;
+    width: 320px;
+}
