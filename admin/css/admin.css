@@ -12,6 +12,9 @@ body {
     padding:0;
     font-family: monospace;
 }
+body.media {
+    margin:0;
+}
 nav {
     background-color: cadetblue;
     overflow:hidden;
@@ -55,6 +58,7 @@ iframe.hide {
     margin:4px;
     cursor:pointer;
     position: relative;
+    box-sizing: initial;
 }
 .album .big {
     width: 180px;
@@ -83,7 +87,6 @@ iframe.hide {
     top: 0px;
     right: 0;
     padding: 6px;
-    width: 15px;
     text-align: center;   
     background-color: rgba(95, 158, 160, 0.24);
     color: cornflowerblue;
@@ -93,7 +96,7 @@ iframe.hide {
     background-color: cadetblue;
 }
 .album .fa-pencil {
-    right: 27px;
+    right: 23px;
 }
 
 form {

@@ -1,24 +1,21 @@
 <?php
 include_once '../utilities.php';
-
-
 $gallery = folder('../../gallery');
-
-
 ?>
-<div class="content">
-    <div>
+<div class="container">
+    <div class="col-md-8">
         <form action="/admin/pages/media.php" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="album">Novo album</label>
-                <input type="file" id="album" name="album" multiple/>
-            </div>
-            <div>
-                <input type="submit" value="upload"/>
-            </div>
+                <div class="col-md-8">
+                    <label class="col-md-4" for="album">Novo album</label>
+                    <input class="col-md-8" type="file" id="album" name="album[]" multiple/>
+                </div>
+                <div class="col-md-4">
+                    <input class="pull-left" type="submit" value="upload"/>
+                    <input class="pull-left" type="reset" value="cancelar" data-type="ajax" data-target="article" data-href="pages/media.php">
+                </div>
         </form>
     </div>
-    
+    <div class="col-md-12">
     <?php 
         foreach($gallery->folders as $name => $album) {
             if (isset($album->files)) {
@@ -62,6 +59,6 @@ $gallery = folder('../../gallery');
         }
     
     ?>
-    
+    </div>
 </div>
 

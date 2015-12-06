@@ -34,6 +34,31 @@ function folder($path = NULL) {
 function Debug($content = '') { 
     echo '<pre>'.print_r($content, TRUE).'</pre>';
 }
+if (!function_exists('namelize')) {
+    function namelize($string){
+        $string = str_replace(array('[\', \']'), '', $string);
+        $string = preg_replace('/\[.*\]/U', '', $string);
+        $string = preg_replace('/&(amp;)?#?[a-z0-9]+;/i', '-', $string);
+        $string = htmlentities($string, ENT_COMPAT, 'utf-8');
+        $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1', $string );
+        $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
+        return strtolower(trim($string, '-'));
+    }
+}
+function rrmdir($dir) {
+  if (is_dir($dir)) {
+    $objects = scandir($dir);
+    foreach ($objects as $object) {
+      if ($object != "." && $object != "..") {
+        if (filetype($dir."/".$object) == "dir") 
+           rrmdir($dir."/".$object); 
+        else unlink   ($dir."/".$object);
+      }
+    }
+    reset($objects);
+    rmdir($dir);
+  }
+ }
 
 
 // if not logged redirect to login.php
@@ -62,9 +87,17 @@ if (!empty($form)) {
         
         if (!empty($_FILES['album'])) {
             $files = $_FILES['album'];
-            Debug(getcwd());
-            foreach($files as $index => $item) {
-                //move_uploaded_file($files['tmp_name'][$index], getcwd() );
+            $root = getcwd();
+            $galleries = folder($root . '/../gallery');
+            $new_gallery_folder = $root . '/../gallery/album' . count($galleries->folders);
+            if (!is_dir($new_gallery_folder)) mkdir($new_gallery_folder, 0755);
+            Debug($files);
+            foreach($files['name'] as $index => $item) {
+                $name_exploded = explode('.', $files['name'][$index]);
+                $name_extension = array_pop($name_exploded);
+                $new_name = namelize(implode('', $name_exploded)) . '.' . $name_extension;
+                //Debug($new_gallery_folder . '/' . namelize($files['name'][$index]));
+                move_uploaded_file($files['tmp_name'][$index], $new_gallery_folder . '/' . $new_name);
             }
             
         }

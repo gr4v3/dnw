@@ -1,6 +1,11 @@
 <?php
 include_once '../utilities.php';
 $album = filter_input(INPUT_GET, 'index');
+$mode = filter_input(INPUT_GET, 'mode'); 
+if ($mode === 'erase') {
+    rrmdir('../../gallery/' . $album);
+    header('location: /admin/pages/media.php');
+}
 $gallery = folder('../../gallery/' . $album);
 ?>
 <form>
