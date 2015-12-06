@@ -42,7 +42,7 @@ foreach($gallery->folders as $index => $folder) {
     $files_reversed = array_reverse($folder->files);
     foreach($folder->files as $img) {
         $label = isset($folder->info->file->{$img})?$folder->info->file->{$img}:'';
-        $album[] = '<div class="item"><label>'.$label.'</label><img alt="" src="/img-360-auto/gallery/'.$index.'/'.$img.'"></div>';
+        $album[] = '<div class="item"><label>'.$label.'</label><div class="img" style="background-image:url(/img-360-auto/gallery/'.$index.'/'.$img.');"></div></div>';
     }
     $album[] = '</div>';
     $media[] = implode('', $album);

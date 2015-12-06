@@ -12,10 +12,10 @@ $document.on('page-load', function(event, $origin) {
     $origin.find('form').each(function(index) {
         var page = window.location.hash.replace("#", "");
         var name = 'form-' + page + '-' + index;
-        var reset = false;
         this.target = name;
         this.method = 'post';
         this.action = '?page='+page+'&form=true';
+        var that = this;
         for(var index = 0;index<this.elements.length;index++) {
             if (this.elements[index].type === 'reset') reset = this.elements[index];
         }
@@ -25,7 +25,8 @@ $document.on('page-load', function(event, $origin) {
                 iframe.className = 'hide';
                 iframe.onload = function() {
                     this.onload = function() {
-                        if (reset) reset.click();
+                        //if (reset) reset.click();
+                        site.load($(that), that.dataset.href);
                     };
                 };
                 $origin[0].appendChild(iframe);

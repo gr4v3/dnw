@@ -80,27 +80,43 @@ if (!empty($form)) {
 
     } else if ($page === 'media') {
         $album = filter_input(INPUT_POST, 'album', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+        
+        if (!empty($_FILES['files'])) {
+            $files = $_FILES['files'];
+            $root = getcwd();
+            
+            
+            if (!empty($album)) {
+                $albumname = $album['name'];
+                $gallery_folder = $root . '/../gallery/' . $album['name'];
+            } else {
+                $galleries = folder($root . '/../gallery');
+                $albumname = 'album' . count($galleries->folders);
+                $gallery_folder = $root . '/../gallery/' . $albumname;
+            }
+            
+            
+            if (!is_dir($gallery_folder)) mkdir($gallery_folder, 0755);
+            foreach($files['name'] as $index => $item) {
+                $name_exploded = explode('.', $files['name'][$index]);
+                $name_extension = array_pop($name_exploded);
+                $new_name = namelize(implode('', $name_exploded)) . '.' . $name_extension;
+                move_uploaded_file($files['tmp_name'][$index], $gallery_folder . '/' . $new_name);
+                
+                $album['file'][$new_name] = 'Escreve uma descrição da foto aqui';
+            }
+            
+            header('location: /admin/pages/album.php?index='.$albumname.'&mode=edit');
+            
+        }
+        
+        
         if (!empty($album)) {
             $name = $album['name'];
             file_put_contents("../gallery/$name/.info", json_encode($album));
         }
         
-        if (!empty($_FILES['album'])) {
-            $files = $_FILES['album'];
-            $root = getcwd();
-            $galleries = folder($root . '/../gallery');
-            $new_gallery_folder = $root . '/../gallery/album' . count($galleries->folders);
-            if (!is_dir($new_gallery_folder)) mkdir($new_gallery_folder, 0755);
-            Debug($files);
-            foreach($files['name'] as $index => $item) {
-                $name_exploded = explode('.', $files['name'][$index]);
-                $name_extension = array_pop($name_exploded);
-                $new_name = namelize(implode('', $name_exploded)) . '.' . $name_extension;
-                //Debug($new_gallery_folder . '/' . namelize($files['name'][$index]));
-                move_uploaded_file($files['tmp_name'][$index], $new_gallery_folder . '/' . $new_name);
-            }
-            
-        }
+        
         
     } else if ($page === 'contacts') {
         
